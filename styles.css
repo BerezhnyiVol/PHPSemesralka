@@ -71,6 +71,7 @@ nav a:hover {
     transition: border-color 0.3s;
 }
 
+
 .search-box:focus {
     border-color: #777; /* Изменение цвета рамки при фокусе */
     outline: none;
