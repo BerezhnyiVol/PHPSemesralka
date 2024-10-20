@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title id="page-title">Recepty - Kulinársky Web</title>
+</head>
+<body>
+<header class="header">
+  <img src="images/logo.png" alt="Logo" class="logo">
+  <h1 id="main-header">Recepty</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="button-nav" onclick="loadPage('index.html'); return false;">Domov</a></li>
+      <li><a href="about.html" class="button-nav" onclick="loadPage('about.html'); return false;">O nás</a></li>
+      <li><a href="recipes.html" class="button-nav" onclick="loadPage('recipes.html'); return false;">Recepty</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>Obľúbené recepty</h2>
+    <input type="text" id="searchInput" placeholder="Hľadať recept..." onkeyup="searchRecipes()" class="search-box">
+    <div class="recipe-list" id="recipeList">
+      <div class="recipe-card" onclick="loadRecipe('recipe1.html')">
+        <img src="images/kolac.png" alt="Čokoládový koláč" class="recipe-image">
+        <div class="recipe-info">
+          <h3>Čokoládový koláč</h3>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="loadRecipe('recipe2.html')">
+        <img src="images/pasta.png" alt="Špagety s omáčkou" class="recipe-image">
+        <div class="recipe-info">
+          <h3>Špagety s omáčkou</h3>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="loadRecipe('recipe3.html')">
+        <img src="images/salad.png" alt="Zeleninový šalát" class="recipe-image">
+        <div class="recipe-info">
+          <h3>Zeleninový šalát</h3>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="loadRecipe('recipe4.html')">
+        <img src="images/file.png" alt="Kuracie prsia" class="recipe-image">
+        <div class="recipe-info">
+          <h3>Kuracie prsia</h3>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="loadRecipe('recipe5.html')">
+        <img src="images/plov.png" alt="Plov" class="recipe-image">
+        <div class="recipe-info">
+          <h3>Plov</h3>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="loadRecipe('recipe6.html')">
+        <img src="images/recipe6.jpg" alt="Mäsové guľky" class="recipe-image">
+        <div class="recipe-info">
+          <h3>Mäsové guľky</h3>
+        </div>
+      </div>
+      <div class="recipe-card" onclick="loadRecipe('recipe7.html')">
+        <img src="images/recipe7.jpg" alt="Lasagne" class="recipe-image">
+        <div class="recipe-info">
+          <h3>Lasagne</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>&copy; 2024 Kulinársky Web</p>
+</footer>
+<script>
+  function loadPage(url) {
+    fetch(url)
+            .then(response => response.text())
+            .then(data => {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(data, 'text/html');
+              const newContent = doc.querySelector('main').innerHTML;
+              document.querySelector('main').innerHTML = newContent;
+
+              // Изменяем заголовок страницы и заголовок h1
+              document.getElementById('page-title').innerText = doc.querySelector('title').innerText;
+              document.getElementById('main-header').innerText = doc.querySelector('h1').innerText;
+            })
+            .catch(error => {
+              console.error('Chyba pri načítavaní stránky:', error);
+              document.querySelector('main').innerHTML = '<p>Chyba pri načítavaní stránky. Skúste to neskôr.</p>';
+            });
+  }
+</script>
+</body>
+</html>

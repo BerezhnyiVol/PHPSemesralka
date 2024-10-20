@@ -1,0 +1,205 @@
+/* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #ececec; /* Более светлый фон */
+    color: #444;
+}
+
+/* Стили заголовка */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #4a4a4a, #666); /* Градиентный фон заголовка */
+    padding: 20px 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    width: 100px;
+}
+
+nav {
+    display: flex;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #f0f0f0; /* Цвет текста ссылок */
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #888; /* Серый цвет кнопок */
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    background-color: #777; /* Темнее при наведении */
+    transform: translateY(-2px); /* Эффект поднятия */
+}
+
+/* Стили основного контента */
+.main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: white; /* Белый фон для основного контента */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили поиска */
+.search-box {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+.search-box:focus {
+    border-color: #777; /* Изменение цвета рамки при фокусе */
+    outline: none;
+}
+
+/* Стили для списка рецептов */
+.recipe-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.recipe-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    margin: 10px;
+    width: calc(33.333% - 20px);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.recipe-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.recipe-image {
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* Стили информации о рецепте */
+.recipe-info {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Стили подвала */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #4a4a4a, #666);
+    color: white;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Стили для слайдера */
+.slider {
+    position: relative;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+}
+
+.slide.active {
+    display: block;
+}
+
+.intro {
+    text-align: center;
+    margin: 20px 0;
+}
+
+/* Стили для блюд */
+.featured-dishes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.dish {
+    width: calc(25% - 20px); /* 4 в линии для ПК */
+    text-align: center;
+    margin: 10px;
+}
+
+.dish img {
+    width: 100%; /* Изображение будет адаптивным */
+    height: auto; /* Высота будет изменяться автоматически для сохранения пропорций */
+    border-radius: 10px; /* Закругленные углы */
+}
+
+/* Кнопки навигации */
+.button-nav {
+    background-color: #888; /* Серый цвет кнопок */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin: 5px;
+}
+
+.button-nav:hover {
+    background-color: #777; /* Темнее при наведении */
+    transform: translateY(-2px); /* Эффект поднятия */
+}
+
+/* Адаптивный дизайн */
+@media (max-width: 768px) {
+    .dish {
+        width: calc(50% - 20px); /* 2 в линии для мобильных устройств */
+    }
+
+    .recipe-card {
+        width: calc(100% - 20px); /* 1 в линии для мобильных устройств */
+    }
+}
+
+@media (max-width: 480px) {
+    .dish {
+        width: calc(100% - 20px); /* 1 в линии для очень маленьких экранов */
+    }
+
+    nav ul {
+        flex-direction: column; /* Вертикальное расположение навигации на мобильных устройствах */
+    }
+
+    nav ul li {
+        margin: 10px 0; /* Увеличение отступов между элементами навигации */
+    }
+}

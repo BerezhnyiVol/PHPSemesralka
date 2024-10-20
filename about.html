@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title id="page-title">O nás - Kulinársky Web</title>
+</head>
+<body>
+<header class="header">
+  <img src="images/logo.png" alt="Logo" class="logo">
+  <h1 id="main-header">O nás</h1>
+  <nav>
+    <ul>
+      <li><a href="index.html" class="button-nav" onclick="loadPage('index.html'); return false;">Domov</a></li>
+      <li><a href="about.html" class="button-nav" onclick="loadPage('about.html'); return false;">O nás</a></li>
+      <li><a href="recipes.html" class="button-nav" onclick="loadPage('recipes.html'); return false;">Recepty</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section>
+    <h2>O nás</h2>
+    <p>Sme nadšenci varenia a chceme s vami zdieľať naše obľúbené recepty!</p>
+  </section>
+</main>
+<footer>
+  <p>&copy; 2024 Kulinársky Web</p>
+</footer>
+<script>
+  function loadPage(url) {
+    fetch(url)
+            .then(response => response.text())
+            .then(data => {
+              const parser = new DOMParser();
+              const doc = parser.parseFromString(data, 'text/html');
+              const newContent = doc.querySelector('main').innerHTML;
+              document.querySelector('main').innerHTML = newContent;
+
+              // Изменяем заголовок страницы и заголовок h1
+              document.getElementById('page-title').innerText = doc.querySelector('title').innerText;
+              document.getElementById('main-header').innerText = doc.querySelector('h1').innerText;
+            })
+            .catch(error => {
+              console.error('Chyba pri načítavaní stránky:', error);
+              document.querySelector('main').innerHTML = '<p>Chyba pri načítavaní stránky. Skúste to neskôr.</p>';
+            });
+  }
+</script>
+</body>
+</html>
