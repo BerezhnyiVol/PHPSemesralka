@@ -8,7 +8,7 @@
 </head>
 <body>
 <header class="header">
-  <img src="images/logo.png" alt="Logo" class="logo">
+  <img src="../images/logo.png" alt="Logo" class="logo">
   <h1 id="main-header">Recepty</h1>
   <nav>
     <ul>
@@ -17,6 +17,8 @@
       <li><a href="recipes.html" class="button-nav" onclick="loadPage('recipes.html'); return false;">Recepty</a></li>
     </ul>
   </nav>
+  <!-- Pridané tlačidlo "Pridat recept" -->
+  <a href="admin.html" class="button-nav admin-button">Pridat recept</a>
 </header>
 <main>
   <section>
@@ -24,31 +26,31 @@
     <input type="text" id="searchInput" placeholder="Hľadať recept..." onkeyup="searchRecipes()" class="search-box">
     <div class="recipe-list" id="recipeList">
       <div class="recipe-card" onclick="loadRecipe('recipe1.html')">
-        <img src="images/kolac.png" alt="Čokoládový koláč" class="recipe-image">
+        <img src="../images/kolac.png" alt="Čokoládový koláč" class="recipe-image">
         <div class="recipe-info">
           <h3>Čokoládový koláč</h3>
         </div>
       </div>
       <div class="recipe-card" onclick="loadRecipe('recipe2.html')">
-        <img src="images/pasta.png" alt="Špagety s omáčkou" class="recipe-image">
+        <img src="../images/pasta.png" alt="Špagety s omáčkou" class="recipe-image">
         <div class="recipe-info">
           <h3>Špagety s omáčkou</h3>
         </div>
       </div>
       <div class="recipe-card" onclick="loadRecipe('recipe3.html')">
-        <img src="images/salad.png" alt="Zeleninový šalát" class="recipe-image">
+        <img src="../images/salad.png" alt="Zeleninový šalát" class="recipe-image">
         <div class="recipe-info">
           <h3>Zeleninový šalát</h3>
         </div>
       </div>
       <div class="recipe-card" onclick="loadRecipe('recipe4.html')">
-        <img src="images/file.png" alt="Kuracie prsia" class="recipe-image">
+        <img src="../images/file.png" alt="Kuracie prsia" class="recipe-image">
         <div class="recipe-info">
           <h3>Kuracie prsia</h3>
         </div>
       </div>
       <div class="recipe-card" onclick="loadRecipe('recipe5.html')">
-        <img src="images/plov.png" alt="Plov" class="recipe-image">
+        <img src="../images/plov.png" alt="Plov" class="recipe-image">
         <div class="recipe-info">
           <h3>Plov</h3>
         </div>
@@ -81,7 +83,7 @@
               const newContent = doc.querySelector('main').innerHTML;
               document.querySelector('main').innerHTML = newContent;
 
-              // Изменяем заголовок страницы и заголовок h1
+              // Zmeníme titulok stránky a hlavnú hlavičku h1
               document.getElementById('page-title').innerText = doc.querySelector('title').innerText;
               document.getElementById('main-header').innerText = doc.querySelector('h1').innerText;
             })
